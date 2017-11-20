@@ -299,4 +299,6 @@ db_logs/
 tp2/
 fbcode/
 fbcode
+base1.db/
+
 buckifier/*.pyc
