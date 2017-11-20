@@ -8,7 +8,10 @@ message Response {
     string data = 1;
 }
 
+
 service Datastore {
    rpc put(Request) returns (Response) {}
    rpc get(Request) returns (Response) {}
+   rpc hw2_put(stream Request) returns (stream Response) {}
+   rpc hw2_get(stream Request) returns (stream Response) {}
 }

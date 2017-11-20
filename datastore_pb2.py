@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='datastore.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x0f\x64\x61tastore.proto\"\x17\n\x07Request\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\x18\n\x08Response\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t2G\n\tDatastore\x12\x1c\n\x03put\x12\x08.Request\x1a\t.Response\"\x00\x12\x1c\n\x03get\x12\x08.Request\x1a\t.Response\"\x00\x62\x06proto3')
+  serialized_pb=_b('\n\x0f\x64\x61tastore.proto\"\x17\n\x07Request\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\x18\n\x08Response\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t2\x93\x01\n\tDatastore\x12\x1c\n\x03put\x12\x08.Request\x1a\t.Response\"\x00\x12\x1c\n\x03get\x12\x08.Request\x1a\t.Response\"\x00\x12$\n\x07hw2_put\x12\x08.Request\x1a\t.Response\"\x00(\x01\x30\x01\x12$\n\x07hw2_get\x12\x08.Request\x1a\t.Response\"\x00(\x01\x30\x01\x62\x06proto3')
 )
 
 
@@ -135,6 +135,16 @@ try:
           request_serializer=Request.SerializeToString,
           response_deserializer=Response.FromString,
           )
+      self.hw2_put = channel.stream_stream(
+          '/Datastore/hw2_put',
+          request_serializer=Request.SerializeToString,
+          response_deserializer=Response.FromString,
+          )
+      self.hw2_get = channel.stream_stream(
+          '/Datastore/hw2_get',
+          request_serializer=Request.SerializeToString,
+          response_deserializer=Response.FromString,
+          )
 
 
   class DatastoreServicer(object):
@@ -155,6 +165,20 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
+    def hw2_put(self, request_iterator, context):
+      # missing associated documentation comment in .proto file
+      pass
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def hw2_get(self, request_iterator, context):
+      # missing associated documentation comment in .proto file
+      pass
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
 
   def add_DatastoreServicer_to_server(servicer, server):
     rpc_method_handlers = {
@@ -165,6 +189,16 @@ try:
         ),
         'get': grpc.unary_unary_rpc_method_handler(
             servicer.get,
+            request_deserializer=Request.FromString,
+            response_serializer=Response.SerializeToString,
+        ),
+        'hw2_put': grpc.stream_stream_rpc_method_handler(
+            servicer.hw2_put,
+            request_deserializer=Request.FromString,
+            response_serializer=Response.SerializeToString,
+        ),
+        'hw2_get': grpc.stream_stream_rpc_method_handler(
+            servicer.hw2_get,
             request_deserializer=Request.FromString,
             response_serializer=Response.SerializeToString,
         ),
@@ -190,6 +224,14 @@ try:
       # missing associated documentation comment in .proto file
       pass
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def hw2_put(self, request_iterator, context):
+      # missing associated documentation comment in .proto file
+      pass
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def hw2_get(self, request_iterator, context):
+      # missing associated documentation comment in .proto file
+      pass
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
   class BetaDatastoreStub(object):
@@ -210,6 +252,14 @@ try:
       pass
       raise NotImplementedError()
     get.future = None
+    def hw2_put(self, request_iterator, timeout, metadata=None, with_call=False, protocol_options=None):
+      # missing associated documentation comment in .proto file
+      pass
+      raise NotImplementedError()
+    def hw2_get(self, request_iterator, timeout, metadata=None, with_call=False, protocol_options=None):
+      # missing associated documentation comment in .proto file
+      pass
+      raise NotImplementedError()
 
 
   def beta_create_Datastore_server(servicer, pool=None, pool_size=None, default_timeout=None, maximum_timeout=None):
@@ -220,14 +270,20 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
       ('Datastore', 'get'): Request.FromString,
+      ('Datastore', 'hw2_get'): Request.FromString,
+      ('Datastore', 'hw2_put'): Request.FromString,
       ('Datastore', 'put'): Request.FromString,
     }
     response_serializers = {
       ('Datastore', 'get'): Response.SerializeToString,
+      ('Datastore', 'hw2_get'): Response.SerializeToString,
+      ('Datastore', 'hw2_put'): Response.SerializeToString,
       ('Datastore', 'put'): Response.SerializeToString,
     }
     method_implementations = {
       ('Datastore', 'get'): face_utilities.unary_unary_inline(servicer.get),
+      ('Datastore', 'hw2_get'): face_utilities.stream_stream_inline(servicer.hw2_get),
+      ('Datastore', 'hw2_put'): face_utilities.stream_stream_inline(servicer.hw2_put),
       ('Datastore', 'put'): face_utilities.unary_unary_inline(servicer.put),
     }
     server_options = beta_implementations.server_options(request_deserializers=request_deserializers, response_serializers=response_serializers, thread_pool=pool, thread_pool_size=pool_size, default_timeout=default_timeout, maximum_timeout=maximum_timeout)
@@ -242,14 +298,20 @@ try:
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
       ('Datastore', 'get'): Request.SerializeToString,
+      ('Datastore', 'hw2_get'): Request.SerializeToString,
+      ('Datastore', 'hw2_put'): Request.SerializeToString,
       ('Datastore', 'put'): Request.SerializeToString,
     }
     response_deserializers = {
       ('Datastore', 'get'): Response.FromString,
+      ('Datastore', 'hw2_get'): Response.FromString,
+      ('Datastore', 'hw2_put'): Response.FromString,
       ('Datastore', 'put'): Response.FromString,
     }
     cardinalities = {
       'get': cardinality.Cardinality.UNARY_UNARY,
+      'hw2_get': cardinality.Cardinality.STREAM_STREAM,
+      'hw2_put': cardinality.Cardinality.STREAM_STREAM,
       'put': cardinality.Cardinality.UNARY_UNARY,
     }
     stub_options = beta_implementations.stub_options(host=host, metadata_transformer=metadata_transformer, request_serializers=request_serializers, response_deserializers=response_deserializers, thread_pool=pool, thread_pool_size=pool_size)

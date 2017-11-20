@@ -24,6 +24,16 @@ class DatastoreStub(object):
         request_serializer=datastore__pb2.Request.SerializeToString,
         response_deserializer=datastore__pb2.Response.FromString,
         )
+    self.hw2_put = channel.stream_stream(
+        '/Datastore/hw2_put',
+        request_serializer=datastore__pb2.Request.SerializeToString,
+        response_deserializer=datastore__pb2.Response.FromString,
+        )
+    self.hw2_get = channel.stream_stream(
+        '/Datastore/hw2_get',
+        request_serializer=datastore__pb2.Request.SerializeToString,
+        response_deserializer=datastore__pb2.Response.FromString,
+        )
 
 
 class DatastoreServicer(object):
@@ -44,6 +54,20 @@ class DatastoreServicer(object):
     context.set_details('Method not implemented!')
     raise NotImplementedError('Method not implemented!')
 
+  def hw2_put(self, request_iterator, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
+  def hw2_get(self, request_iterator, context):
+    # missing associated documentation comment in .proto file
+    pass
+    context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+    context.set_details('Method not implemented!')
+    raise NotImplementedError('Method not implemented!')
+
 
 def add_DatastoreServicer_to_server(servicer, server):
   rpc_method_handlers = {
@@ -54,6 +78,16 @@ def add_DatastoreServicer_to_server(servicer, server):
       ),
       'get': grpc.unary_unary_rpc_method_handler(
           servicer.get,
+          request_deserializer=datastore__pb2.Request.FromString,
+          response_serializer=datastore__pb2.Response.SerializeToString,
+      ),
+      'hw2_put': grpc.stream_stream_rpc_method_handler(
+          servicer.hw2_put,
+          request_deserializer=datastore__pb2.Request.FromString,
+          response_serializer=datastore__pb2.Response.SerializeToString,
+      ),
+      'hw2_get': grpc.stream_stream_rpc_method_handler(
+          servicer.hw2_get,
           request_deserializer=datastore__pb2.Request.FromString,
           response_serializer=datastore__pb2.Response.SerializeToString,
       ),
