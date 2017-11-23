@@ -62,7 +62,7 @@ class MyDatastoreServicer(datastore_pb2.DatastoreServicer):
         self.followers = self.followers + 1 # keep track of number of slave dbs
         print("SLAVE DBS CONNECTED: " + str(self.followers))
 
-        dataStream.append(["replicate"])
+        dataStream.append([])  # add one argument to resolve error encountered
         while len(dataStream[slaveId]) > 0:
             data = dataStream[slaveId].pop(0)
             yield datastore_pb2.ReplicationStream(key=data["key"], value=data["value"])
