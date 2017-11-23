@@ -71,7 +71,6 @@ class MyDatastoreServicer(datastore_pb2.DatastoreServicer):
     def replication(func):
         print("REPLICATION")
 
-        @wraps(func)
         def wrapper(*args, **kwargs):
             print("hello wrapper")
             for i in range(args[0].totalConnections):
