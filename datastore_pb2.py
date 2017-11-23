@@ -19,7 +19,7 @@ DESCRIPTOR = _descriptor.FileDescriptor(
   name='datastore.proto',
   package='',
   syntax='proto3',
-  serialized_pb=_b('\n\x0f\x64\x61tastore.proto\"\x17\n\x07Request\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\x18\n\x08Response\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t2\x93\x01\n\tDatastore\x12\x1c\n\x03put\x12\x08.Request\x1a\t.Response\"\x00\x12\x1c\n\x03get\x12\x08.Request\x1a\t.Response\"\x00\x12$\n\x07hw2_put\x12\x08.Request\x1a\t.Response\"\x00(\x01\x30\x01\x12$\n\x07hw2_get\x12\x08.Request\x1a\t.Response\"\x00(\x01\x30\x01\x62\x06proto3')
+  serialized_pb=_b('\n\x0f\x64\x61tastore.proto\"\x17\n\x07Request\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"&\n\x08Request2\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x18\n\x08Response\x12\x0c\n\x04\x64\x61ta\x18\x01 \x01(\t\"\'\n\tResponse2\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t\"\x14\n\x12ReplicationRequest\"/\n\x11ReplicationStream\x12\x0b\n\x03key\x18\x01 \x01(\t\x12\r\n\x05value\x18\x02 \x01(\t2\xc8\x01\n\tDatastore\x12\x1c\n\x03put\x12\x08.Request\x1a\t.Response\"\x00\x12\x1c\n\x03get\x12\x08.Request\x1a\t.Response\"\x00\x12\x1f\n\x04get2\x12\t.Request2\x1a\n.Response2\"\x00\x12$\n\x07hw2_put\x12\x08.Request\x1a\t.Response\"\x00(\x01\x30\x01\x12\x38\n\tconnector\x12\x13.ReplicationRequest\x1a\x12.ReplicationStream\"\x00\x30\x01\x62\x06proto3')
 )
 
 
@@ -56,6 +56,44 @@ _REQUEST = _descriptor.Descriptor(
 )
 
 
+_REQUEST2 = _descriptor.Descriptor(
+  name='Request2',
+  full_name='Request2',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='Request2.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='Request2.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=44,
+  serialized_end=82,
+)
+
+
 _RESPONSE = _descriptor.Descriptor(
   name='Response',
   full_name='Response',
@@ -82,12 +120,116 @@ _RESPONSE = _descriptor.Descriptor(
   extension_ranges=[],
   oneofs=[
   ],
-  serialized_start=44,
-  serialized_end=68,
+  serialized_start=84,
+  serialized_end=108,
+)
+
+
+_RESPONSE2 = _descriptor.Descriptor(
+  name='Response2',
+  full_name='Response2',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='Response2.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='Response2.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=110,
+  serialized_end=149,
+)
+
+
+_REPLICATIONREQUEST = _descriptor.Descriptor(
+  name='ReplicationRequest',
+  full_name='ReplicationRequest',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=151,
+  serialized_end=171,
+)
+
+
+_REPLICATIONSTREAM = _descriptor.Descriptor(
+  name='ReplicationStream',
+  full_name='ReplicationStream',
+  filename=None,
+  file=DESCRIPTOR,
+  containing_type=None,
+  fields=[
+    _descriptor.FieldDescriptor(
+      name='key', full_name='ReplicationStream.key', index=0,
+      number=1, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+    _descriptor.FieldDescriptor(
+      name='value', full_name='ReplicationStream.value', index=1,
+      number=2, type=9, cpp_type=9, label=1,
+      has_default_value=False, default_value=_b("").decode('utf-8'),
+      message_type=None, enum_type=None, containing_type=None,
+      is_extension=False, extension_scope=None,
+      options=None),
+  ],
+  extensions=[
+  ],
+  nested_types=[],
+  enum_types=[
+  ],
+  options=None,
+  is_extendable=False,
+  syntax='proto3',
+  extension_ranges=[],
+  oneofs=[
+  ],
+  serialized_start=173,
+  serialized_end=220,
 )
 
 DESCRIPTOR.message_types_by_name['Request'] = _REQUEST
+DESCRIPTOR.message_types_by_name['Request2'] = _REQUEST2
 DESCRIPTOR.message_types_by_name['Response'] = _RESPONSE
+DESCRIPTOR.message_types_by_name['Response2'] = _RESPONSE2
+DESCRIPTOR.message_types_by_name['ReplicationRequest'] = _REPLICATIONREQUEST
+DESCRIPTOR.message_types_by_name['ReplicationStream'] = _REPLICATIONSTREAM
 _sym_db.RegisterFileDescriptor(DESCRIPTOR)
 
 Request = _reflection.GeneratedProtocolMessageType('Request', (_message.Message,), dict(
@@ -97,12 +239,40 @@ Request = _reflection.GeneratedProtocolMessageType('Request', (_message.Message,
   ))
 _sym_db.RegisterMessage(Request)
 
+Request2 = _reflection.GeneratedProtocolMessageType('Request2', (_message.Message,), dict(
+  DESCRIPTOR = _REQUEST2,
+  __module__ = 'datastore_pb2'
+  # @@protoc_insertion_point(class_scope:Request2)
+  ))
+_sym_db.RegisterMessage(Request2)
+
 Response = _reflection.GeneratedProtocolMessageType('Response', (_message.Message,), dict(
   DESCRIPTOR = _RESPONSE,
   __module__ = 'datastore_pb2'
   # @@protoc_insertion_point(class_scope:Response)
   ))
 _sym_db.RegisterMessage(Response)
+
+Response2 = _reflection.GeneratedProtocolMessageType('Response2', (_message.Message,), dict(
+  DESCRIPTOR = _RESPONSE2,
+  __module__ = 'datastore_pb2'
+  # @@protoc_insertion_point(class_scope:Response2)
+  ))
+_sym_db.RegisterMessage(Response2)
+
+ReplicationRequest = _reflection.GeneratedProtocolMessageType('ReplicationRequest', (_message.Message,), dict(
+  DESCRIPTOR = _REPLICATIONREQUEST,
+  __module__ = 'datastore_pb2'
+  # @@protoc_insertion_point(class_scope:ReplicationRequest)
+  ))
+_sym_db.RegisterMessage(ReplicationRequest)
+
+ReplicationStream = _reflection.GeneratedProtocolMessageType('ReplicationStream', (_message.Message,), dict(
+  DESCRIPTOR = _REPLICATIONSTREAM,
+  __module__ = 'datastore_pb2'
+  # @@protoc_insertion_point(class_scope:ReplicationStream)
+  ))
+_sym_db.RegisterMessage(ReplicationStream)
 
 
 try:
@@ -135,15 +305,20 @@ try:
           request_serializer=Request.SerializeToString,
           response_deserializer=Response.FromString,
           )
+      self.get2 = channel.unary_unary(
+          '/Datastore/get2',
+          request_serializer=Request2.SerializeToString,
+          response_deserializer=Response2.FromString,
+          )
       self.hw2_put = channel.stream_stream(
           '/Datastore/hw2_put',
           request_serializer=Request.SerializeToString,
           response_deserializer=Response.FromString,
           )
-      self.hw2_get = channel.stream_stream(
-          '/Datastore/hw2_get',
-          request_serializer=Request.SerializeToString,
-          response_deserializer=Response.FromString,
+      self.connector = channel.unary_stream(
+          '/Datastore/connector',
+          request_serializer=ReplicationRequest.SerializeToString,
+          response_deserializer=ReplicationStream.FromString,
           )
 
 
@@ -165,16 +340,23 @@ try:
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
-    def hw2_put(self, request_iterator, context):
-      # missing associated documentation comment in .proto file
-      pass
+    def get2(self, request, context):
+      """Put request to accomodate for replication 
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
 
-    def hw2_get(self, request_iterator, context):
-      # missing associated documentation comment in .proto file
-      pass
+    def hw2_put(self, request_iterator, context):
+      """Automatically puts 'put' requests into master db 
+      """
+      context.set_code(grpc.StatusCode.UNIMPLEMENTED)
+      context.set_details('Method not implemented!')
+      raise NotImplementedError('Method not implemented!')
+
+    def connector(self, request, context):
+      """Connects the slave server with master server for replication 
+      """
       context.set_code(grpc.StatusCode.UNIMPLEMENTED)
       context.set_details('Method not implemented!')
       raise NotImplementedError('Method not implemented!')
@@ -192,15 +374,20 @@ try:
             request_deserializer=Request.FromString,
             response_serializer=Response.SerializeToString,
         ),
+        'get2': grpc.unary_unary_rpc_method_handler(
+            servicer.get2,
+            request_deserializer=Request2.FromString,
+            response_serializer=Response2.SerializeToString,
+        ),
         'hw2_put': grpc.stream_stream_rpc_method_handler(
             servicer.hw2_put,
             request_deserializer=Request.FromString,
             response_serializer=Response.SerializeToString,
         ),
-        'hw2_get': grpc.stream_stream_rpc_method_handler(
-            servicer.hw2_get,
-            request_deserializer=Request.FromString,
-            response_serializer=Response.SerializeToString,
+        'connector': grpc.unary_stream_rpc_method_handler(
+            servicer.connector,
+            request_deserializer=ReplicationRequest.FromString,
+            response_serializer=ReplicationStream.SerializeToString,
         ),
     }
     generic_handler = grpc.method_handlers_generic_handler(
@@ -224,13 +411,17 @@ try:
       # missing associated documentation comment in .proto file
       pass
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def hw2_put(self, request_iterator, context):
-      # missing associated documentation comment in .proto file
-      pass
+    def get2(self, request, context):
+      """Put request to accomodate for replication 
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
-    def hw2_get(self, request_iterator, context):
-      # missing associated documentation comment in .proto file
-      pass
+    def hw2_put(self, request_iterator, context):
+      """Automatically puts 'put' requests into master db 
+      """
+      context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
+    def connector(self, request, context):
+      """Connects the slave server with master server for replication 
+      """
       context.code(beta_interfaces.StatusCode.UNIMPLEMENTED)
 
 
@@ -252,13 +443,18 @@ try:
       pass
       raise NotImplementedError()
     get.future = None
-    def hw2_put(self, request_iterator, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+    def get2(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      """Put request to accomodate for replication 
+      """
       raise NotImplementedError()
-    def hw2_get(self, request_iterator, timeout, metadata=None, with_call=False, protocol_options=None):
-      # missing associated documentation comment in .proto file
-      pass
+    get2.future = None
+    def hw2_put(self, request_iterator, timeout, metadata=None, with_call=False, protocol_options=None):
+      """Automatically puts 'put' requests into master db 
+      """
+      raise NotImplementedError()
+    def connector(self, request, timeout, metadata=None, with_call=False, protocol_options=None):
+      """Connects the slave server with master server for replication 
+      """
       raise NotImplementedError()
 
 
@@ -269,20 +465,23 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_deserializers = {
+      ('Datastore', 'connector'): ReplicationRequest.FromString,
       ('Datastore', 'get'): Request.FromString,
-      ('Datastore', 'hw2_get'): Request.FromString,
+      ('Datastore', 'get2'): Request2.FromString,
       ('Datastore', 'hw2_put'): Request.FromString,
       ('Datastore', 'put'): Request.FromString,
     }
     response_serializers = {
+      ('Datastore', 'connector'): ReplicationStream.SerializeToString,
       ('Datastore', 'get'): Response.SerializeToString,
-      ('Datastore', 'hw2_get'): Response.SerializeToString,
+      ('Datastore', 'get2'): Response2.SerializeToString,
       ('Datastore', 'hw2_put'): Response.SerializeToString,
       ('Datastore', 'put'): Response.SerializeToString,
     }
     method_implementations = {
+      ('Datastore', 'connector'): face_utilities.unary_stream_inline(servicer.connector),
       ('Datastore', 'get'): face_utilities.unary_unary_inline(servicer.get),
-      ('Datastore', 'hw2_get'): face_utilities.stream_stream_inline(servicer.hw2_get),
+      ('Datastore', 'get2'): face_utilities.unary_unary_inline(servicer.get2),
       ('Datastore', 'hw2_put'): face_utilities.stream_stream_inline(servicer.hw2_put),
       ('Datastore', 'put'): face_utilities.unary_unary_inline(servicer.put),
     }
@@ -297,20 +496,23 @@ try:
     file not marked beta) for all further purposes. This function was
     generated only to ease transition from grpcio<0.15.0 to grpcio>=0.15.0"""
     request_serializers = {
+      ('Datastore', 'connector'): ReplicationRequest.SerializeToString,
       ('Datastore', 'get'): Request.SerializeToString,
-      ('Datastore', 'hw2_get'): Request.SerializeToString,
+      ('Datastore', 'get2'): Request2.SerializeToString,
       ('Datastore', 'hw2_put'): Request.SerializeToString,
       ('Datastore', 'put'): Request.SerializeToString,
     }
     response_deserializers = {
+      ('Datastore', 'connector'): ReplicationStream.FromString,
       ('Datastore', 'get'): Response.FromString,
-      ('Datastore', 'hw2_get'): Response.FromString,
+      ('Datastore', 'get2'): Response2.FromString,
       ('Datastore', 'hw2_put'): Response.FromString,
       ('Datastore', 'put'): Response.FromString,
     }
     cardinalities = {
+      'connector': cardinality.Cardinality.UNARY_STREAM,
       'get': cardinality.Cardinality.UNARY_UNARY,
-      'hw2_get': cardinality.Cardinality.STREAM_STREAM,
+      'get2': cardinality.Cardinality.UNARY_UNARY,
       'hw2_put': cardinality.Cardinality.STREAM_STREAM,
       'put': cardinality.Cardinality.UNARY_UNARY,
     }

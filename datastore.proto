@@ -8,10 +8,23 @@ message Response {
     string data = 1;
 }
 
+message ReplicationRequest {
+
+}
+
+message ReplicationStream {
+    string key = 1;
+    string value = 2;
+}
+
 
 service Datastore {
    rpc put(Request) returns (Response) {}
    rpc get(Request) returns (Response) {}
+
+   /* Automatically puts 'put' requests into master db */
    rpc hw2_put(stream Request) returns (stream Response) {}
-   rpc hw2_get(stream Request) returns (stream Response) {}
+
+   /* Connects the slave server with master server for replication */
+   rpc connector(ReplicationRequest) returns (stream ReplicationStream) {}
 }
