@@ -51,5 +51,8 @@ Example: docker run -it --rm --name hw2-ops -v "$PWD":/usr/src/myapp -w /usr/src
 
 
 It will yield the following result:
-[put image here]
+
+> SERVER NAME =        slave1.db
+> Key =                e6d9e0e679aa48569780a4dc195266f4
+> Value =              nihao
 
